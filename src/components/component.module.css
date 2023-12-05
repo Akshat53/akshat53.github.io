@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@500&display=swap');
+
+
+.nav {
+  font-family: "Poppins", sans-serif;
+
+  font-size: 1.5rem;
+}
+.logo{
+    font-family: 'Josefin Slab', serif;
+    font-size: 2rem;
+}
+
+ul{
+    border-bottom: none !important;
+}

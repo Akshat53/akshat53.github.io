@@ -15,11 +15,14 @@ const Nav = (props) => {
     setCurrent(e.key);
   };
   return (
-    <Row align={"middle"} justify={"space-between"}  >
-      <Col push={4}>
+    <Row align={"middle"} justify={"center"}  >
+      <Col lg={6} md={12} sm={12} xs={12} >
+        <div>
         <p className={Styles.logo}>{label}</p>
+        </div>
       </Col>
-      <Col lg={12} md={6} sm={3} pull={1}>
+      <Col lg={6} md={12} sm={12} xs={12} >
+        <div className={Styles.container}>
         <Menu
           className={Styles.nav}
           onClick={onClick}
@@ -27,6 +30,7 @@ const Nav = (props) => {
           mode="horizontal"
           items={options}
         />
+        </div>
       </Col>
     </Row>
   );

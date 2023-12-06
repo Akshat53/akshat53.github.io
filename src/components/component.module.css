@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-  @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@500&display=swap');
 
 
 .nav {
@@ -15,4 +15,30 @@
 
 ul{
     border-bottom: none !important;
+}
+.container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    font-family: "Poppins", sans-serif;
+    color:rgb(85, 85, 85);
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 0px;
+  }
+  
+  .image {
+    max-width: 60%; 
+    height: auto; 
+  }
+  .name{
+    color: black;
+    font-weight: 1000;
+    font-size: 30px;
+  }
+.designation{
+    font-size: 30px;
+    
 }

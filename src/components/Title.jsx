@@ -1,12 +1,17 @@
-import React from 'react'
+import React from "react";
+import styles from "../components/component.module.css";
+
 
 const Title = (props) => {
-    const {title} = props 
+  const { title,label } = props;
   return (
-    <div>
-        <h1>{title}</h1>
-    </div>
-  )
-}
+    <div className={styles.title}>
+        <p>{label}</p>
+      <h1 >{title}</h1>
 
-export default Title
+    </div>
+    
+  );
+};
+
+export default Title;

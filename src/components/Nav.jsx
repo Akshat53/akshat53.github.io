@@ -1,35 +1,40 @@
 import React, { useState } from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-import { Menu, Row, Col } from "antd";
+import { Menu, Row, Col, Button, Dropdown } from "antd";
 import Styles from "../components/component.module.css";
+import { MenuFoldOutlined } from '@ant-design/icons';
 
 const Nav = (props) => {
   const { options = [], label } = props;
   const [current, setCurrent] = useState("about");
+
   const onClick = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
   };
+
+  const menu = (
+    <Menu onClick={onClick}>
+      {options.map((option) => (
+        <Menu.Item key={option.key}>{option.label}</Menu.Item>
+      ))}
+    </Menu>
+  );
+
   return (
-    <Row align={"middle"} justify={"center"}  >
-      <Col lg={6} md={12} sm={12} xs={12} >
-        <div>
-        <p className={Styles.logo}>{label}</p>
+    <Row align="middle" justify="center">
+      <Col lg={12} md={12} sm={12} xs={12}>
+        <div className={Styles.centerContent}>
+          <p className={Styles.logo}>{label}</p>
         </div>
       </Col>
-      <Col lg={6} md={12} sm={12} xs={12} >
-        <div className={Styles.container}>
-        <Menu
-          className={Styles.nav}
-          onClick={onClick}
-          selectedKeys={[current]}
-          mode="horizontal"
-          items={options}
-        />
+      <Col lg={12} md={12} sm={12} xs={12}>
+        <div className={Styles.centerContent}>
+        
+          <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
+            <Button  className={Styles.dropdownButton}>
+            <MenuFoldOutlined />
+            </Button>
+          </Dropdown>
         </div>
       </Col>
     </Row>

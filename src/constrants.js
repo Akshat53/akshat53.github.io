@@ -1,47 +1,67 @@
-import { DownloadOutlined ,ContactsOutlined,GithubOutlined ,LinkedinOutlined} from '@ant-design/icons';
+import {
+  DownloadOutlined,
+  ContactsOutlined,
+  GithubOutlined,
+  LinkedinOutlined,
+  ScheduleOutlined,
+  TeamOutlined
+} from "@ant-design/icons";
 
 export const navOptions = [
   {
     label: "About us ",
-    key: "about",
+    key: "1",
   },
   {
     label: "Experience",
-    key: "experience",
+    key: "2",
   },
   {
     label: "Projects",
-    key: "projects",
+    key: "3",
   },
   {
     label: "Contact",
-    key: "contact",
+    key: "4",
   },
-  
 ];
-export const buttonOptions =[{
-  key :"downloade",
-  text :"Downloade CV",
-  icon : <DownloadOutlined />
+export const buttonOptions = [
+  {
+    key: "downloade",
+    text: "Downloade CV",
+    icon: <DownloadOutlined />,
+  },
+  {
+    key: "contact",
+    text: "Contact Info",
+    icon: <ContactsOutlined />,
+  },
 
-},
-{
-  key :"contact",
-  text :"Contact Info",
-  icon : <ContactsOutlined />
+  {
+    key: "linkedin",
+    text: "",
+    icon: <LinkedinOutlined />,
+  },
+  {
+    key: "github",
+    text: "",
+    icon: <GithubOutlined />,
+  },
+];
 
-},
-
-{
-  key :"linkedin",
-  text :"",
-  icon :<LinkedinOutlined />,
-  
-
-},
-{
-  key :"github",
-  text :"",
-  icon : <GithubOutlined />
-
-}]
+export const cardOptions = [
+  {
+    key: 1,
+    prof: "Experience",
+    desg: "Frontend Development",
+    stats: "2+ years",
+    icon: <ScheduleOutlined />,
+  },
+  {
+    key: 2,
+    prof: "Education",
+    desg: "",
+    stats: "BCA Bachelors Degree",
+    icon: <TeamOutlined />,
+  },
+];

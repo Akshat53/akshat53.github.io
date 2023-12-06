@@ -11,6 +11,13 @@
   font-family: "Josefin Slab", serif;
   font-size: 2rem;
 }
+.centerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 20px 0px;
+}
 
 ul {
   border-bottom: none !important;
@@ -36,7 +43,7 @@ ul {
 .name {
   color: #64ccc5;
   font-weight: 1000;
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
 }
 .designation {
@@ -49,17 +56,74 @@ ul {
   color: white;
   font-size: 15px;
 }
-.pad{
-    height: 400px;
+.pad {
+  height: 500px;
+  padding: 100px 0px;
 }
-.about img{
+.imgSec img {
   border-radius: 30px;
+}
+.imgSec {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+.subCard {
+  display: flex;
+  justify-content: space-evenly;
 
+  width: 100%;
 }
 
+.about {
+  font-family: "Poppins", sans-serif;
+  
+}
 
-@media screen and (max-width: 768px) {
-  .about h1{
-    padding: 150px 0px 0 0;
+@media screen and (max-width: 900px) {
+  .title {
+    margin: 150px 0px 0px 0;
   }
+}
+.title h1 {
+  font-family: "Josefin Slab", serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 7px;
+}
+.title p {
+  text-align: center;
+  color: #b6bbc4;
+  font-size: 15px;
+}
+.title {
+  background-color: #04364a;
+
+  padding: 5px 0px;
+}
+.Card {
+  display: block;
+
+  align-items: center;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  font-size: 1rem;
+  text-align: center;
+  width: 40%;
+  border-radius: 20px;
+  padding: 10px 0px;
+  color: #64ccc5;
+}
+.Card h4,
+p {
+  margin: 0;
+}
+
+.aboutMe {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+
+  padding: 20px;
 }

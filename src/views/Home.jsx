@@ -1,10 +1,12 @@
 import React from "react";
 import Nav from "../components/Nav";
-import { Col, Row } from "antd";
-import { navOptions ,buttonOptions} from "../constrants";
+
+import { navOptions, buttonOptions } from "../constrants";
 import Profile from "../components/profile/Profile";
 import Img from "../images/akshat.png";
-
+import About from "../components/aboutUs/About";
+import styles from "../components/component.module.css";
+import Img2 from "../images/akshat2.jpg";
 
 const Home = () => {
   return (
@@ -14,9 +16,9 @@ const Home = () => {
         src={Img}
         designation={"Frontend Developer"}
         name={"Akshat Singh"}
-        options ={buttonOptions}
-       
+        options={buttonOptions}
       />
+      <About heading={"About Us"} src={Img2} />
     </>
   );
 };

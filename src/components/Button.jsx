@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button, Divider, Flex, Radio } from 'antd';
+import { Button, } from 'antd';
 
 const AppButton = (props) => {
-    const {label,onclick,icon} = props 
+    const {label,icon} = props 
   return (
-    <Button type="primary" shape="round" icon={icon}>
+    <Button  shape="round" icon={icon}>
     {label}
   </Button>
   )

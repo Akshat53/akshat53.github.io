@@ -1,10 +1,10 @@
 import React from "react";
 import Nav from "../components/Nav";
 import { Col, Row } from "antd";
-import { navOptions } from "../constrants";
+import { navOptions ,buttonOptions} from "../constrants";
 import Profile from "../components/profile/Profile";
 import Img from "../images/akshat.png";
-import { DownloadOutlined } from '@ant-design/icons';
+
 
 const Home = () => {
   return (
@@ -14,8 +14,8 @@ const Home = () => {
         src={Img}
         designation={"Frontend Developer"}
         name={"Akshat Singh"}
-        text={"Downloade CV"}
-        icon={<DownloadOutlined />}
+        options ={buttonOptions}
+       
       />
     </>
   );

@@ -1,11 +1,10 @@
 import React from "react";
 import styles from "../component.module.css";
 import { Col, Row, Space } from "antd";
-import Button from '../Button'
-
+import Button from "../Button";
 
 const Img = (props) => {
-  const { src, label, name, designation,text,icon } = props;
+  const { src, label, name, designation,icon=[], options = [] } = props;
   return (
     <>
       <Row justify="center">
@@ -16,12 +15,14 @@ const Img = (props) => {
         </Col>
         <Col lg={6} md={12} sm={24} xs={24}>
           <div className={styles.container}>
-          
-              <p>Hello, I'm</p>
-              <p className={styles.name}>{name}</p>
-              <p className={styles.designation}>{designation}</p>
-              <Button label={text} icon={icon}/>
+            <p style={{margin:"0px"}}>Hello, I'm</p>
+            <p className={styles.name}>{name}</p>
+            <p className={styles.designation}>{designation}</p>
 
+            {options.map((item, i) => {
+              return <Button  label={item.text} icon={item.icon} />;
+            })}
+            
            
           </div>
         </Col>

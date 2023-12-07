@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Menu, Row, Col, Button, Dropdown } from "antd";
 import Styles from "../components/component.module.css";
-import { MenuFoldOutlined } from '@ant-design/icons';
+import { MenuFoldOutlined } from "@ant-design/icons";
 
 const Nav = (props) => {
   const { options = [], label } = props;
-  const [current, setCurrent] = useState("about");
-
-  const onClick = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
-  };
 
   const menu = (
-    <Menu onClick={onClick}>
+    <Menu>
       {options.map((option) => (
         <Menu.Item key={option.key}>{option.label}</Menu.Item>
       ))}
@@ -29,10 +23,9 @@ const Nav = (props) => {
       </Col>
       <Col lg={12} md={12} sm={12} xs={12}>
         <div className={Styles.centerContent}>
-        
           <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
-            <Button  className={Styles.dropdownButton}>
-            <MenuFoldOutlined />
+            <Button className={Styles.dropdownButton}>
+              <MenuFoldOutlined />
             </Button>
           </Dropdown>
         </div>

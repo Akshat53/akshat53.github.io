@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../components/component.module.css";
-import { ScheduleOutlined } from "@ant-design/icons";
+
 
 const Card = (props) => {
   const { icon, prof, stats, desg } = props;

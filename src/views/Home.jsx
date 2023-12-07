@@ -5,12 +5,12 @@ import { navOptions, buttonOptions, cardOptions } from "../constrants";
 import Profile from "../components/profile/Profile";
 import Img from "../images/akshat.png";
 import About from "../components/aboutUs/About";
-import styles from "../components/component.module.css";
+
 import Img2 from "../images/akshat2.jpg";
 
 const Home = () => {
   return (
-    <div style={{backgroundColor:"black",color:"white"}}>
+    <div style={{ backgroundColor: "black", color: "white" }}>
       <Nav options={navOptions} label={"AS"} />
       <Profile
         src={Img}
@@ -20,7 +20,7 @@ const Home = () => {
       />
       <About
         heading={"About Me"}
-        subHeading={'Get To Know More'}
+        subHeading={"Get To Know More"}
         src={Img2}
         options={cardOptions}
         text={

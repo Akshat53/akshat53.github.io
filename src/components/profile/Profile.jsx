@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../component.module.css";
-import { Col, Row, Space } from "antd";
+import { Col, Row } from "antd";
 import Button from "../Button";
 
 const Profile = (props) => {

@@ -17,7 +17,7 @@ const About = (props) => {
       <Row justify={"center"}>
         <Col lg={6} md={12} sm={24} xs={24}>
           <div className={styles.imgSec}>
-            <img src={src} width={"70%"} />
+            <img src={src} width={"70%"} alt={'sba'} />
           </div>
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>

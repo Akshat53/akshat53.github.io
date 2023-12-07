@@ -24,7 +24,7 @@ const About = (props) => {
           <Row justify={"center"}>
             <Col lg={24} md={24} sm={24} xs={24}>
               <div className={styles.subCard}>
-                {options.map((item, i) => {
+                {options.map((item, i) => { 
                   return (
                     <Card
                       icon={item.icon}

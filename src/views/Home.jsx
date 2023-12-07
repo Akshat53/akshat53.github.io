@@ -22,7 +22,7 @@ const Home = () => {
         heading={"About Me"}
         subHeading={"Get To Know More"}
         src={Img2}
-        options={cardOptions}
+        options={cardOptions} 
         text={
           "Experienced in frontend development for two years with HTML, CSS, JavaScript, React.js, and Next.js, proficient in GitHub, Postman, and Bitbucket for streamlined workflows. Also, possess one year of Java microservice development experience. Holds a BCA degree, blending practical expertise with a strong educational foundation."
         }

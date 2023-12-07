@@ -4,7 +4,8 @@ import {
   GithubOutlined,
   LinkedinOutlined,
   ScheduleOutlined,
-  TeamOutlined
+  TeamOutlined,
+  CheckCircleOutlined
 } from "@ant-design/icons";
 
 export const navOptions = [
@@ -64,4 +65,39 @@ export const cardOptions = [
     stats: "BCA Bachelors Degree",
     icon: <TeamOutlined />,
   },
+  
 ];
+
+export const expCard1 = [
+  {
+    key :1,
+    level:"Experience",
+    label:"HTML",
+  
+    icon:<CheckCircleOutlined />,
+  },
+  {
+    key :2,
+    level:"Experience",
+    label:"HTML",
+    
+    icon:<CheckCircleOutlined />,
+  }
+]
+export const expCard2 = [
+  {
+    key :1,
+    level:"Experience",
+    label:"HTML",
+    title :"Frontend Devlopment",
+    icon:<CheckCircleOutlined />,
+  },
+  
+  {
+    key :2,
+    level:"Experience",
+    label:"HTML",
+  
+    icon:<CheckCircleOutlined />,
+  }
+]

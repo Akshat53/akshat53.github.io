@@ -41,7 +41,7 @@ const Home = () => {
         options1={expCard1}
         options2={expCard2}
       />
-      <Project />
+      <Project heading={"Projects"} subHeading={"Browse My Recent"} />
     </div>
   );
 };

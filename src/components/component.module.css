@@ -167,3 +167,25 @@ p {
   font-size: 20px;
   color: #a0abbe;
 }
+.projectCard{
+  display: flex ;
+  justify-content: space-around;
+
+ 
+  
+}
+.projectCard a{
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  
+}
+.projectCard button{
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  width: 150px;
+  font-size: 15px;
+  
+}
+

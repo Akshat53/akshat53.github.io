@@ -5,7 +5,7 @@ import {
   LinkedinOutlined,
   ScheduleOutlined,
   TeamOutlined,
-  CheckCircleOutlined
+  CheckCircleOutlined,
 } from "@ant-design/icons";
 
 export const navOptions = [
@@ -65,39 +65,89 @@ export const cardOptions = [
     stats: "BCA Bachelors Degree",
     icon: <TeamOutlined />,
   },
-  
 ];
 
 export const expCard1 = [
   {
-    key :1,
-    level:"Experience",
-    label:"HTML",
-  
-    icon:<CheckCircleOutlined />,
+    key: 1,
+    level: "Experienced",
+    label: "HTML",
+    icon: <CheckCircleOutlined />,
   },
   {
-    key :2,
-    level:"Experience",
-    label:"HTML",
-    
-    icon:<CheckCircleOutlined />,
-  }
-]
+    key: 2,
+    level: "Experienced",
+    label: "CSS",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 3,
+    level: "Experienced",
+    label: "BootStrap",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 4,
+    level: "Experienced",
+    label: "React Js",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 5,
+    level: "Intermediate",
+    label: "JavaScript",
+    icon: <CheckCircleOutlined />,
+  },
+
+  {
+    key: 6,
+    level: "Intermediate",
+    label: "Java J2EE",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 7,
+    level: "Intermediate",
+    label: "Springboot",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 8,
+    level: "Experienced",
+    label: "AntD",
+    icon: <CheckCircleOutlined />,
+  },
+];
 export const expCard2 = [
   {
-    key :1,
-    level:"Experience",
-    label:"HTML",
-    title :"Frontend Devlopment",
-    icon:<CheckCircleOutlined />,
+    key: 1,
+    level: "Intermediate",
+    label: "MySql",
+    icon: <CheckCircleOutlined />,
   },
-  
+
   {
-    key :2,
-    level:"Experience",
-    label:"HTML",
-  
-    icon:<CheckCircleOutlined />,
-  }
-]
+    key: 2,
+    level: "Intermediate",
+    label: "MongoDB",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 3,
+    level: "Experienced",
+    label: "Git",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 4,
+    level: "Experienced",
+    label: "Bitbucket",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: 5,
+    level: "Experienced",
+    label: "Postman",
+    icon: <CheckCircleOutlined />,
+  },
+];

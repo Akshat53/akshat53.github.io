@@ -7,7 +7,7 @@ const Profile = (props) => {
   const { src, label, name, designation, options = [] } = props;
   return (
     <>
-      <Row justify="center" align={"middle"} className={styles.pad}>
+      <Row justify="center" align={"middle"} className={styles.pad} >
         <Col lg={6} md={12} sm={24} xs={24} className={styles.column}>
           <div className={styles.container}>
             <img src={src} alt={label} className={styles.image} />

@@ -14,6 +14,7 @@ import About from "../components/aboutUs/About";
 
 import Img2 from "../images/akshat2.jpg";
 import Experience from "../components/experience/Experience";
+import Project from "../components/project/Project";
 
 const Home = () => {
   return (
@@ -40,6 +41,7 @@ const Home = () => {
         options1={expCard1}
         options2={expCard2}
       />
+      <Project />
     </div>
   );
 };

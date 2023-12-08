@@ -36,7 +36,7 @@ const About = (props) => {
                 })}
               </div>
             </Col>
-            <Col lg={24} md={24} sm={24} xs={24}>
+            <Col lg={20} md={21} sm={21} xs={20}>
               <div className={styles.aboutMe}>
                 <p>{text}</p>
               </div>
@@ -44,6 +44,7 @@ const About = (props) => {
           </Row>
         </Col>
       </Row>
+      <Divider />
     </div>
   );
 };

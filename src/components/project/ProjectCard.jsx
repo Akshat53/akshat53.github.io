@@ -20,7 +20,7 @@ const ProjectCard = (props) => {
           />
         }
       >
-        <Meta title={title} description={description} style={{height:"150px"}}/>
+        <Meta title={title} description={description} style={{height:"200px"}}/>
         <Divider />
         <div className={styles.projectCard}>
           <a href={href}>

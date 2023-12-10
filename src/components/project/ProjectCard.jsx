@@ -11,7 +11,7 @@ const ProjectCard = (props) => {
         style={{
           width: "100%",
           textAlign: "center",
-          height:"500px"
+          height:"530px"
         }}
         cover={
           <img
@@ -20,7 +20,7 @@ const ProjectCard = (props) => {
           />
         }
       >
-        <Meta title={title} description={description}/>
+        <Meta title={title} description={description} style={{height:"190px"}}/>
         <Divider />
         <div className={styles.projectCard}>
           <a href={href}>

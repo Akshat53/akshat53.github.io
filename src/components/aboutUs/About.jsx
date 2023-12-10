@@ -15,9 +15,9 @@ const About = (props) => {
       </Row>
       <Divider />
       <Row justify={"center"}>
-        <Col lg={6} md={12} sm={24} xs={24}>
+        <Col lg={6} md={8} sm={20} xs={20}>
           <div className={styles.imgSec}>
-            <img src={src} width={"70%"} alt={'sba'} />
+            <img src={src} width={"100%"} alt={'sba'} />
           </div>
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>

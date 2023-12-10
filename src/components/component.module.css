@@ -68,13 +68,23 @@ ul {
   justify-content: space-around;
 
 }
+
+
 .subCard {
   display: flex;
   justify-content: space-evenly;
+ 
 }
 
 .about {
   font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (max-width: 767px) {
+    .subCard {
+   padding: 30px 0px;
+  }
+
 }
 
 .title h1 {

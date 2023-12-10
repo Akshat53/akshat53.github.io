@@ -11,7 +11,7 @@ const ProjectCard = (props) => {
         style={{
           width: "100%",
           textAlign: "center",
-          height:"500px"
+         
         }}
         cover={
           <img

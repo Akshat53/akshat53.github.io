@@ -23,7 +23,7 @@ const Project = (props) => {
       </Row>
 
       <Row justify={"center"}>
-        <Col lg={6} md={6} sm={12} xs={18}>
+        <Col lg={6} md={14} sm={12} xs={18}>
           <AppCarousel >
             {carouselOptions.map((item,i) => {
                 return item.comp

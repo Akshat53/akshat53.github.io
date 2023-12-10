@@ -15,13 +15,13 @@ const Nav = (props) => {
   );
 
   return (
-    <Row align="middle" justify="center">
-      <Col lg={12} md={12} sm={12} xs={12}>
+    <Row align="middle" justify="space-between">
+      <Col lg={12} md={12} sm={12} xs={6}>
         <div className={Styles.centerContent}>
           <p className={Styles.logo}>{label}</p>
         </div>
       </Col>
-      <Col lg={12} md={12} sm={12} xs={12}>
+      <Col lg={12} md={12} sm={12} xs={6}>
         <div className={Styles.centerContent}>
           <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
             <Button className={Styles.dropdownButton}>

@@ -17,7 +17,7 @@ const ProjectCard = (props) => {
           <img
             alt="example"
             src={img}
-          />
+          />    
         }
       >
         <Meta title={title} description={description} style={{height:"200px"}}/>

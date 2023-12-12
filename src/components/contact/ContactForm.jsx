@@ -1,13 +1,8 @@
 import React from "react";
-import { Button, Checkbox, Col, Form, Input, Row } from "antd";
+import { Button, Col, Form, Row } from "antd";
 import FormInput from "../formItems/Input";
 import styles from "../component.module.css";
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
+
 const AppContactForm = () => (
   <Form
     style={{

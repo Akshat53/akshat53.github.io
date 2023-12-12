@@ -198,4 +198,33 @@ p {
   font-size: 15px;
   
 }
-
+.contact{
+  display: flex;
+  justify-content: center;
+    border-radius: 20px;
+    padding: 30px 0px;
+    width: 100%;
+    background-color: white;
+    color: #04364a;
+  
+}
+.formInput{
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2px solid #b6bbc4;
+}
+.formInput::placeholder{
+  font-size: 20px;
+  color: #04364a;
+}
+.formInput:focus{
+  box-shadow: none;
+  border-color: #04364a;
+  
+}
+.formInput:hover{
+  box-shadow: none;
+  border-color: #04364a;
+  
+}

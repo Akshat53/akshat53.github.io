@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../components/Nav";
+import Contact from '../components/contact/Contact'
 
 import {
   navOptions,
@@ -42,6 +43,7 @@ const Home = () => {
         options2={expCard2}
       />
       <Project heading={"Projects"} subHeading={"Browse My Recent"} />
+      <Contact heading={"Contact Me"} subHeading={"Get in touch"} />
     </div>
   );
 };

@@ -104,10 +104,6 @@ const AppContactForm = () => {
         >
           <Row justify={"space-evenly"}>
             <Col lg={9} md={20} sm={20} xs={20}>
-              {/* <p className={styles.errorMessages}>
-                <ErrorMessage name="fname" />
-              </p>
-              */}
               <FormInput
                 label=""
                 name="fname"
@@ -122,9 +118,6 @@ const AppContactForm = () => {
               />
             </Col>
             <Col lg={9} md={20} sm={20} xs={20}>
-              <p className={styles.errorMessages}>
-                <ErrorMessage name="lname" />
-              </p>
               <FormInput
                 label=""
                 name="lname"
@@ -134,12 +127,11 @@ const AppContactForm = () => {
                 value={values.lname}
                 onChange={handleChange}
                 placeholder={"Last Name"}
+                error={errors.lname}
+                touched={touched.lname}
               />
             </Col>
             <Col lg={9} md={20} sm={20} xs={20}>
-            <p  className={styles.errorMessages}>
-                <ErrorMessage name="email" />
-              </p>
               <FormInput
                 label=""
                 name="email"
@@ -149,12 +141,11 @@ const AppContactForm = () => {
                 value={values.email}
                 onChange={handleChange}
                 placeholder={"Email"}
+                error={errors.email}
+                touched={touched.email}
               />
             </Col>
             <Col lg={9} md={20} sm={20} xs={20}>
-            <p  className={styles.errorMessages}>
-                <ErrorMessage name="number" />
-              </p>
               <FormInput
                 label=""
                 name="number"
@@ -164,12 +155,11 @@ const AppContactForm = () => {
                 value={values.number}
                 onChange={handleChange}
                 placeholder={"Contact Number"}
+                error={errors.number}
+                touched={touched.number}
               />
             </Col>
             <Col span={20}>
-            <p  className={styles.errorMessages}>
-                <ErrorMessage name="message" />
-              </p>
               <FormInput
                 label=""
                 name="message"
@@ -179,10 +169,13 @@ const AppContactForm = () => {
                 value={values.message}
                 onChange={handleChange}
                 placeholder={"Message"}
+                error={errors.message}
+                touched={touched.message}
               />
             </Col>
-          <Col lg={6} md={20} sm={20} xs={20}>{successMessage && <p>{successMessage}</p>}
-          </Col>
+            <Col lg={6} md={20} sm={20} xs={20}>
+              {successMessage && <p>{successMessage}</p>}
+            </Col>
             <Col lg={6} md={20} sm={20} xs={20}>
               <button type="submit" className={styles.submitButton}>
                 Submit

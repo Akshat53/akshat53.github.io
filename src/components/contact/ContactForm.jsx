@@ -51,7 +51,9 @@ const AppContactForm = () => {
       );
 
       if (response.status === 200) {
-        setSuccessMessage("Email sent successfully!");
+        setSuccessMessage(
+          "Thank you for Contact ! i will get in touch very soon "
+        );
         setTimeout(() => {
           setSuccessMessage("");
         }, 5000); // Clear success message after 5 seconds
@@ -101,7 +103,10 @@ const AppContactForm = () => {
           }}
         >
           <Row justify={"space-evenly"}>
-            <Col span={9}>
+            <Col lg={9} md={20} sm={20} xs={20}>
+              <p className={styles.errorMessages}>
+                <ErrorMessage name="fname" />
+              </p>
               <FormInput
                 label=""
                 name="fname"
@@ -112,9 +117,11 @@ const AppContactForm = () => {
                 onChange={handleChange}
                 placeholder={"First Name"}
               />
-              <ErrorMessage name="fname" />
             </Col>
-            <Col span={9}>
+            <Col lg={9} md={20} sm={20} xs={20}>
+              <p className={styles.errorMessages}>
+                <ErrorMessage name="lname" />
+              </p>
               <FormInput
                 label=""
                 name="lname"
@@ -125,9 +132,11 @@ const AppContactForm = () => {
                 onChange={handleChange}
                 placeholder={"Last Name"}
               />
-              <ErrorMessage name="lname" />
             </Col>
-            <Col span={11}>
+            <Col lg={9} md={20} sm={20} xs={20}>
+            <p  className={styles.errorMessages}>
+                <ErrorMessage name="email" />
+              </p>
               <FormInput
                 label=""
                 name="email"
@@ -138,9 +147,11 @@ const AppContactForm = () => {
                 onChange={handleChange}
                 placeholder={"Email"}
               />
-              <ErrorMessage name="email" />
             </Col>
-            <Col span={7}>
+            <Col lg={9} md={20} sm={20} xs={20}>
+            <p  className={styles.errorMessages}>
+                <ErrorMessage name="number" />
+              </p>
               <FormInput
                 label=""
                 name="number"
@@ -151,9 +162,11 @@ const AppContactForm = () => {
                 onChange={handleChange}
                 placeholder={"Contact Number"}
               />
-              <ErrorMessage name="number" />
             </Col>
             <Col span={20}>
+            <p  className={styles.errorMessages}>
+                <ErrorMessage name="message" />
+              </p>
               <FormInput
                 label=""
                 name="message"
@@ -164,12 +177,12 @@ const AppContactForm = () => {
                 onChange={handleChange}
                 placeholder={"Message"}
               />
-              <ErrorMessage name="message" />
             </Col>
-            <Col span={20}>
-              <button type="submit">Submit</button>
-
-              {successMessage && <p>{successMessage}</p>}
+          
+            <Col lg={6} md={20} sm={20} xs={20}>
+              <button type="submit" className={styles.submitButton}>
+                Submit
+              </button>
             </Col>
           </Row>
         </Form>

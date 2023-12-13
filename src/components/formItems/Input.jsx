@@ -15,6 +15,8 @@ const FormInput = (props) => {
     type,
     disabled,
   } = props;
+  const displayPlaceholder = error && touched ? error : placeholder;
+
   return (
     <Form.Item
       {...containerProps}
@@ -23,13 +25,14 @@ const FormInput = (props) => {
       help={error && touched ? error : ""}
     >
       <Input
-        {...inputProps}
-        name={name}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        type={type}
-        disabled={disabled}
+       {...inputProps}
+       name={name}
+       value={value}
+       onChange={onChange}
+       placeholder={displayPlaceholder} // Use the dynamic placeholder
+       type={type}
+       disabled={disabled}
+     
       />
     </Form.Item>
   );

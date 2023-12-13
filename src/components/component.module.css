@@ -228,3 +228,17 @@ p {
   border-color: #04364a;
   
 }
+.errorMessages{
+  
+  font-weight: bold;
+  color: red;
+  
+}
+
+.submitButton{
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}

@@ -29,7 +29,7 @@ const FormInput = (props) => {
        name={name}
        value={value}
        onChange={onChange}
-       placeholder={displayPlaceholder} // Use the dynamic placeholder
+       placeholder={placeholder}
        type={type}
        disabled={disabled}
      

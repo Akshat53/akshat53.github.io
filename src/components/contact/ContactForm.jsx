@@ -104,9 +104,10 @@ const AppContactForm = () => {
         >
           <Row justify={"space-evenly"}>
             <Col lg={9} md={20} sm={20} xs={20}>
-              <p className={styles.errorMessages}>
+              {/* <p className={styles.errorMessages}>
                 <ErrorMessage name="fname" />
               </p>
+              */}
               <FormInput
                 label=""
                 name="fname"
@@ -116,6 +117,8 @@ const AppContactForm = () => {
                 value={values.fname}
                 onChange={handleChange}
                 placeholder={"First Name"}
+                error={errors.fname}
+                touched={touched.fname}
               />
             </Col>
             <Col lg={9} md={20} sm={20} xs={20}>

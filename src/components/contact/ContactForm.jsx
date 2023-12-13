@@ -178,7 +178,8 @@ const AppContactForm = () => {
                 placeholder={"Message"}
               />
             </Col>
-          
+          <Col lg={6} md={20} sm={20} xs={20}>{successMessage && <p>{successMessage}</p>}
+          </Col>
             <Col lg={6} md={20} sm={20} xs={20}>
               <button type="submit" className={styles.submitButton}>
                 Submit

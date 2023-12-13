@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Col, Row } from "antd";
 import FormInput from "../formItems/Input";
 import styles from "../component.module.css";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 

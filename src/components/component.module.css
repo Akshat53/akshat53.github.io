@@ -213,6 +213,7 @@ p {
   border: none;
   font-size: 20px;
   border-bottom: 2px solid #b6bbc4;
+  border-radius : 0;
 }
 .formInput::placeholder{
   font-size: 20px;

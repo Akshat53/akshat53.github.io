@@ -30,6 +30,8 @@ const AppContactForm = () => (
               inputProps={{
                 className: styles.formInput,
               }}
+              value={values.fname}
+              onChange={handleChange}
               placeholder={"First Name"}
             />
           </Col>

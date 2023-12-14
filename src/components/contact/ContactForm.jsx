@@ -107,7 +107,7 @@ const AppContactForm = () => {
               <FormInput
                 label=""
                 name="fname"
-                inputProps={{
+                inputProps={{ 
                   className: styles.formInput,
                 }}
                 value={values.fname}

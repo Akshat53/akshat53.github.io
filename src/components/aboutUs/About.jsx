@@ -5,9 +5,9 @@ import styles from "../component.module.css";
 import Card from "../Card";
 
 const About = (props) => {
-  const { heading, src, options = [], text,subHeading } = props;
+  const { heading, src, options = [], text,subHeading,aboutSectionRef } = props;
   return (
-    <div className={styles.about}>
+    <div className={styles.about} ref={aboutSectionRef}>
       <Row justify={"center"}>
         <Col span={24}>
           <Title title={heading} label={subHeading}/>

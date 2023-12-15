@@ -7,7 +7,7 @@ import CardList from "./CardList";
 const Experience = (props) => {
   const { heading, subHeading, options1 = [], options2 = [] } = props;
   return (
-    <div>
+    <div id="exp">
       <Row justify={"center"}>
         <Col span={24}>
           <Title title={heading} label={subHeading} />

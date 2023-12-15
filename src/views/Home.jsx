@@ -41,6 +41,7 @@ const Home = () => {
         subHeading={"Explore My"}
         options1={expCard1}
         options2={expCard2}
+        
       />
       <Project heading={"Projects"} subHeading={"Browse My Recent"} />
       <Contact heading={"Contact Me"} subHeading={"Get in touch"} />

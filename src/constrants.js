@@ -11,6 +11,7 @@ import ProjectCard from "./components/project/ProjectCard";
 import Img1 from "./images/1.png";
 import Img2 from "./images/2.png";
 import Img3 from "./images/3.png";
+import CV from './resume.pdf'
 
 export const navOptions = [
   {
@@ -35,22 +36,26 @@ export const buttonOptions = [
     key: "downloade",
     text: "Downloade CV",
     icon: <DownloadOutlined />,
+    href : CV
   },
   {
     key: "contact",
     text: "Contact Info",
     icon: <ContactsOutlined />,
+    href: ''
   },
 
   {
     key: "linkedin",
     text: "",
     icon: <LinkedinOutlined />,
+    href : 'https://www.linkedin.com/in/akshat53/'
   },
   {
     key: "github",
     text: "",
     icon: <GithubOutlined />,
+    href : 'https://github.com/Akshat53'
   },
 ];
 

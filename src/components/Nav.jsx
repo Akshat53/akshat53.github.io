@@ -9,7 +9,7 @@ const Nav = (props) => {
   const menu = (
     <Menu>
       {options.map((option) => (
-        <Menu.Item key={option.key}>{option.label}</Menu.Item>
+       <button > <Menu.Item key={option.key}>{option.label}</Menu.Item></button>
       ))}
     </Menu>
   );

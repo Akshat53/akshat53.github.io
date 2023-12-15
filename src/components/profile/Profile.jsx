@@ -20,7 +20,7 @@ const Profile = (props) => {
             <p className={styles.designation}>{designation}</p>
 
             {options.map((item, i) => {
-              return <Button label={item.text} icon={item.icon} stats={item.stats}/>;
+              return <a href={item.href}><Button label={item.text} icon={item.icon} /></a>;
             })}
           </div>
         </Col>

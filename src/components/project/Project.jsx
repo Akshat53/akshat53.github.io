@@ -7,7 +7,7 @@ import { carouselOptions } from "../../constrants";
 
 
 const Project = (props) => {
-  const { heading, subHeading } = props;
+  const { heading, subHeading ,projectSectionRef} = props;
   return (
     <Space
       direction="vertical"
@@ -15,6 +15,7 @@ const Project = (props) => {
       style={{
         display: "flex",
       }}
+      ref={projectSectionRef}
     >
       <Row justify={"center"}>
         <Col span={24}>

@@ -3,13 +3,12 @@ import { Menu, Row, Col, Button, Dropdown } from "antd";
 import Styles from "../components/component.module.css";
 import { MenuFoldOutlined } from "@ant-design/icons";
 
-const Nav = (props) => {
-  const { options = [], label } = props;
-
+const Nav = ({ label,options = [], handleMenuClick }) => {
+ 
   const menu = (
-    <Menu>
+    <Menu onClick={({ key }) => handleMenuClick(key)}>
       {options.map((option) => (
-       <button > <Menu.Item key={option.key}>{option.label}</Menu.Item></button>
+        <Menu.Item key={option.key}>{option.label}</Menu.Item>
       ))}
     </Menu>
   );

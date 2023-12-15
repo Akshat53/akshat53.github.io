@@ -5,7 +5,7 @@ import styles from '../component.module.css'
 import AppContactForm from "./ContactForm";
 
 const Contact = (props) => {
-  const { subHeading, heading } = props;
+  const { subHeading, heading ,contactSectionRef} = props;
   return (
     <Space
       direction="vertical"
@@ -13,6 +13,7 @@ const Contact = (props) => {
       style={{
         display: "flex",
       }}
+      ref={contactSectionRef}
     >
       <Row justify={"center"}>
         <Col span={24}>

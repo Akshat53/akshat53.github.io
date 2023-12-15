@@ -5,9 +5,9 @@ import styles from "../component.module.css";
 import CardList from "./CardList";
 
 const Experience = (props) => {
-  const { heading, subHeading, options1 = [], options2 = [] } = props;
+  const { heading, subHeading, options1 = [], options2 = [],expSectionRef } = props;
   return (
-    <div id="exp">
+    <div ref={expSectionRef} >
       <Row justify={"center"}>
         <Col span={24}>
           <Title title={heading} label={subHeading} />

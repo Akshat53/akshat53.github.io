@@ -25,7 +25,7 @@ const Nav = ({ label,options = [], handleMenuClick }) => {
           <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
             <Button className={Styles.dropdownButton}>
               <MenuFoldOutlined />
-            </Button>
+            </Button> 
           </Dropdown>
         </div>
       </Col>

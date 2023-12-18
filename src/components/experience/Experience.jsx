@@ -14,7 +14,7 @@ const Experience = (props) => {
         </Col>
       </Row>
       <Divider />
-      <Row justify={"center"}> 
+      <Row justify={"center"}>  
         <Col lg={8} md={12} sm={12} xs={24} className={styles.experience}>
           <div>
           <h3 className={styles.cardListTitle}>Tech Stats</h3>

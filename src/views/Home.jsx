@@ -30,7 +30,7 @@ import {
   projectsData,
   professionalExperience
 } from "../constrants";
-import Img from "../images/akshat.JPG";
+import Img from "../images/akshat.jpg";
 import Img2 from "../images/akshat2.jpg";
 import CV from "../resume.pdf";
 

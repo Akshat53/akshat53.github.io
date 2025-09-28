@@ -13,11 +13,9 @@ import {
   Phone,
   MapPin,
   ExternalLink,
-  Star,
   Award,
   Calendar,
   Users,
-  ArrowRight,
   Building,
   Clock,
   CheckCircle,
@@ -37,7 +35,6 @@ import CV from "../resume.pdf";
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   // Form state
   const [formData, setFormData] = useState({
@@ -61,16 +58,10 @@ const Home = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 

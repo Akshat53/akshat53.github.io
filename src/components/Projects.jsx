@@ -139,12 +139,12 @@ export default function Projects() {
                     transition={{ duration: 0.3 }}
                     className="flex gap-4 pt-4"
                   >
-                    <a href="#" className="text-sm font-medium text-black hover:text-blue-600 transition-colors">
+                    <button onClick={() => window.open('#')} className="text-sm font-medium text-black hover:text-blue-600 transition-colors">
                       View Code →
-                    </a>
-                    <a href="#" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+                    </button>
+                    <button onClick={() => window.open('#')} className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
                       Live Demo →
-                    </a>
+                    </button>
                   </motion.div>
                 </div>
               </motion.div>
@@ -156,9 +156,9 @@ export default function Projects() {
             variants={itemVariants}
             className="text-center mt-16 md:mt-24"
           >
-            <a href="#" className="text-lg font-medium text-black hover:text-blue-600 transition-colors">
+            <button onClick={() => window.location.href = '#'} className="text-lg font-medium text-black hover:text-blue-600 transition-colors">
               View all 50+ projects →
-            </a>
+            </button>
           </motion.div>
         </motion.div>
       </div>

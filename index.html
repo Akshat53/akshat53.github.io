@@ -3,581 +3,453 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Akshat Kumar Singh - Frontend Engineer. Premium digital experiences with React, Next.js & Web Components">
-  <title>Akshat Kumar Singh - Frontend Engineer</title>
+  <meta name="description" content="Akshat Kumar Singh - Frontend Engineer. Premium web experiences.">
+  <title>Akshat Kumar Singh</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-      background: #fbfbfd; 
-      color: #1d1d1f;
-      overflow-x: hidden;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
     }
-    
-    /* Navbar */
-    nav { 
-      position: fixed; 
-      top: 0; 
-      width: 100%; 
+
+    /* Dark luxury theme */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
       z-index: 1000;
-      backdrop-filter: blur(20px);
-      background: rgba(251, 251, 253, 0.7);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 1.2rem clamp(20px, 5vw, 56px);
-      transition: all 0.3s ease;
+      backdrop-filter: blur(30px);
+      background: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem clamp(20px, 5vw, 56px);
     }
-    nav a { 
-      font-size: 0.95rem; 
-      font-weight: 700; 
-      color: #1d1d1f; 
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-    
-    .container { 
-      max-width: 1120px; 
-      margin: 0 auto; 
-      padding: 0 clamp(20px, 5vw, 56px); 
-    }
-    
-    /* Hero */
-    .hero { 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      padding: clamp(120px, 20vh, 200px) clamp(20px, 5vw, 56px);
-      text-align: center;
-      background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(11, 102, 195, 0.1) 0%, transparent 70%);
-      top: -200px;
-      right: -200px;
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-30px); }
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-    }
-    
-    .hero h1 { 
-      font-size: clamp(3rem, 9vw, 6rem); 
-      font-weight: 800; 
-      letter-spacing: -0.035em; 
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #1d1d1f 0%, #48484a 50%, #0b66c3 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: slideUp 0.8s ease 0.2s both;
-    }
-    
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .hero p { 
-      font-size: clamp(1.15rem, 2.2vw, 1.4rem); 
-      line-height: 1.7;
-      color: #48484a;
-      max-width: 70ch;
-      margin: 2rem auto;
-      letter-spacing: -0.01em;
-      animation: slideUp 0.8s ease 0.4s both;
-    }
-    
-    .cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 3rem;
-      animation: slideUp 0.8s ease 0.6s both;
-      flex-wrap: wrap;
-    }
-    
-    .cta { 
-      padding: 15px 36px;
-      background: linear-gradient(135deg, #0b66c3 0%, #0052a3 100%);
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
-      box-shadow: 0 12px 40px rgba(11, 102, 195, 0.25);
-      border: none;
-      cursor: pointer;
-      letter-spacing: -0.01em;
-    }
-    
-    .cta:hover { 
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(11, 102, 195, 0.35);
-    }
-    
-    .cta-secondary {
-      background: transparent;
-      color: #0b66c3;
-      border: 2px solid #0b66c3;
-      box-shadow: none;
-    }
-    
-    .cta-secondary:hover {
-      background: rgba(11, 102, 195, 0.05);
-    }
-    
-    /* Work Section */
-    .work { 
-      padding: clamp(100px, 15vh, 180px) clamp(20px, 5vw, 56px);
-      background: #ffffff;
-    }
-    
-    .section-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: #0b66c3;
+
+    nav a {
+      font-size: 0.9rem;
       font-weight: 700;
-      margin-bottom: 0.8rem;
-      opacity: 0;
-      animation: slideUp 0.6s ease 0.2s both;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff;
     }
-    
-    .work h2 { 
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 4rem;
-      color: #1d1d1f;
-      opacity: 0;
-      animation: slideUp 0.6s ease 0.3s both;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 56px);
     }
-    
-    .projects-grid { 
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: clamp(28px, 3.5vw, 40px);
-    }
-    
-    .project-card { 
-      background: white;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 24px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
-      position: relative;
-      opacity: 0;
-      animation: slideUp 0.6s ease forwards;
-    }
-    
-    .project-card:nth-child(1) { animation-delay: 0.4s; }
-    .project-card:nth-child(2) { animation-delay: 0.5s; }
-    .project-card:nth-child(3) { animation-delay: 0.6s; }
-    .project-card:nth-child(4) { animation-delay: 0.7s; }
-    .project-card:nth-child(5) { animation-delay: 0.8s; }
-    .project-card:nth-child(6) { animation-delay: 0.9s; }
-    
-    .project-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 0%, rgba(11, 102, 195, 0.08) 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 1;
-      pointer-events: none;
-    }
-    
-    .project-card:hover::before { opacity: 1; }
-    .project-card:hover { 
-      transform: translateY(-12px);
-      border-color: rgba(11, 102, 195, 0.15);
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.12);
-    }
-    
-    .project-image { 
-      aspect-ratio: 16/10;
-      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 5.5rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      overflow: hidden;
+      padding: clamp(120px, 20vh, 200px) clamp(20px, 5vw, 56px);
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
       position: relative;
+      overflow: hidden;
     }
-    
-    .project-image span {
-      display: block;
-      transition: all 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
-      filter: brightness(1);
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(100, 150, 255, 0.1) 0%, transparent 60%);
+      animation: pulse 8s ease-in-out infinite;
     }
-    
-    .project-card:hover .project-image span { 
-      transform: scale(1.12) rotate(-5deg);
-      filter: brightness(1.2);
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
     }
-    
-    .project-content { 
-      padding: 32px;
+
+    .hero-content {
       position: relative;
       z-index: 2;
     }
-    
-    .project-tag { 
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      color: #0b66c3;
-      font-weight: 800;
-      margin-bottom: 14px;
-      opacity: 0.9;
-    }
-    
-    .project-content h3 { 
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.016em;
-      color: #1d1d1f;
-    }
-    
-    .project-content p { 
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #48484a;
-      letter-spacing: -0.01em;
-    }
-    
-    /* About Section */
-    .about { 
-      padding: clamp(100px, 15vh, 180px) clamp(20px, 5vw, 56px);
-      background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
-    }
-    
-    .about h2 { 
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 3rem;
-      opacity: 0;
-      animation: slideUp 0.6s ease 0.2s both;
-    }
-    
-    .about-content { 
-      max-width: 70ch;
-      opacity: 0;
-      animation: slideUp 0.6s ease 0.3s both;
-    }
-    
-    .about-content p { 
-      font-size: 1.08rem;
-      line-height: 1.8;
-      color: #48484a;
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 10vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
       margin-bottom: 2rem;
-      letter-spacing: -0.01em;
+      background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
+
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: #bbb;
+      max-width: 60ch;
+      margin: 2rem auto;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .cta {
+      display: inline-block;
       margin-top: 2rem;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #6496ff 0%, #4070ff 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 0;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.4s ease;
+      border: 2px solid #6496ff;
     }
-    
-    .skill-tag {
-      padding: 12px 18px;
-      background: rgba(11, 102, 195, 0.08);
-      border: 1px solid rgba(11, 102, 195, 0.2);
+
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(100, 150, 255, 0.3);
+    }
+
+    /* Work Section */
+    .work {
+      padding: clamp(120px, 18vh, 200px) clamp(20px, 5vw, 56px);
+      background: #0f0f0f;
+    }
+
+    .work-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #6496ff;
+      margin-bottom: 1rem;
+    }
+
+    .work h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 5rem;
+      color: #fff;
+    }
+
+    .projects {
+      display: grid;
+      gap: 4rem;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .project:nth-child(even) {
+      direction: rtl;
+    }
+
+    .project:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .project:nth-child(1) { animation-delay: 0.2s; }
+    .project:nth-child(2) { animation-delay: 0.4s; }
+    .project:nth-child(3) { animation-delay: 0.6s; }
+    .project:nth-child(4) { animation-delay: 0.8s; }
+    .project:nth-child(5) { animation-delay: 1s; }
+    .project:nth-child(6) { animation-delay: 1.2s; }
+
+    .project-image {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #333 0%, #111 100%);
       border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(100, 150, 255, 0.15) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project:hover .project-image::before {
+      opacity: 1;
+    }
+
+    .project-image span {
+      transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+      display: block;
+      font-size: 5rem;
+    }
+
+    .project:hover .project-image span {
+      transform: scale(1.15) rotate(-8deg);
+    }
+
+    .project-content h3 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #6496ff;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .project-content p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.005em;
+    }
+
+    /* About */
+    .about {
+      padding: clamp(120px, 18vh, 200px) clamp(20px, 5vw, 56px);
+      background: #1a1a1a;
+    }
+
+    .about h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      margin-bottom: 3rem;
+    }
+
+    .about-content {
+      max-width: 70ch;
+    }
+
+    .about-content p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #aaa;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.005em;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .skill {
+      padding: 12px 16px;
+      background: rgba(100, 150, 255, 0.1);
+      border: 1px solid rgba(100, 150, 255, 0.3);
+      border-radius: 4px;
       font-size: 0.9rem;
       font-weight: 600;
-      color: #0b66c3;
+      color: #6496ff;
       text-align: center;
       transition: all 0.3s ease;
     }
-    
-    .skill-tag:hover {
-      background: rgba(11, 102, 195, 0.15);
+
+    .skill:hover {
+      background: rgba(100, 150, 255, 0.2);
       transform: translateY(-2px);
     }
-    
-    /* Contact Section */
-    .contact { 
-      padding: clamp(100px, 15vh, 180px) clamp(20px, 5vw, 56px);
-      background: #ffffff;
-    }
-    
-    .contact h2 { 
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 3rem;
-      opacity: 0;
-      animation: slideUp 0.6s ease 0.2s both;
-    }
-    
-    .contact-form { 
-      max-width: 58ch;
-      opacity: 0;
-      animation: slideUp 0.6s ease 0.3s both;
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .contact-form input,
-    .contact-form textarea { 
-      width: 100%;
-      padding: 14px 18px;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      background: rgba(255, 255, 255, 0.5);
-      transition: all 0.3s ease;
-      letter-spacing: -0.01em;
-    }
-    
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: #0b66c3;
-      background: white;
-      box-shadow: 0 0 0 4px rgba(11, 102, 195, 0.1);
-    }
-    
-    .contact-form button { 
-      padding: 15px 36px;
-      background: linear-gradient(135deg, #0b66c3 0%, #0052a3 100%);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
-      box-shadow: 0 12px 40px rgba(11, 102, 195, 0.25);
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-    }
-    
-    .contact-form button:hover { 
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(11, 102, 195, 0.35);
-    }
-    
-    /* Footer */
-    footer { 
-      padding: clamp(60px, 10vh, 120px) clamp(20px, 5vw, 56px);
-      background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+    /* Contact */
+    .contact {
+      padding: clamp(120px, 18vh, 200px) clamp(20px, 5vw, 56px);
+      background: #0f0f0f;
       text-align: center;
-      opacity: 0;
-      animation: slideUp 0.6s ease 0.2s both;
     }
-    
-    footer p { 
-      font-size: 0.875rem;
-      color: #86868b;
-      letter-spacing: -0.01em;
+
+    .contact h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      margin-bottom: 3rem;
     }
-    
-    footer a { 
-      color: #0b66c3;
+
+    .contact p {
+      font-size: 1.1rem;
+      color: #aaa;
+      margin-bottom: 2rem;
+    }
+
+    .contact-cta {
+      display: inline-block;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, #6496ff 0%, #4070ff 100%);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.4s ease;
+      border: 2px solid #6496ff;
+    }
+
+    .contact-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 70px rgba(100, 150, 255, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      padding: clamp(80px, 12vh, 160px) clamp(20px, 5vw, 56px);
+      background: #000;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #666;
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: #6496ff;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s ease;
     }
-    
-    footer a:hover { color: #0052a3; }
-    
-    /* Scroll Observer */
-    .scroll-reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
-    }
-    
-    .scroll-reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    @media (max-width: 768px) {
+      .project { grid-template-columns: 1fr; }
+      .project:nth-child(even) { direction: ltr; }
     }
   </style>
 </head>
 <body>
   <nav class="container">
-    <a href="#home">AKSHAT</a>
+    <a href="#home">AKSHAT SINGH</a>
   </nav>
-  
+
   <section id="home" class="hero">
     <div class="hero-content">
-      <h1>Premium digital experiences<br>that scale.</h1>
-      <p>Frontend Engineer crafting high-performance web applications. 3+ years building with React, Next.js, and modern web technologies for startups and enterprises.</p>
-      <div class="cta-group">
-        <a href="#work" class="cta">View My Work</a>
-        <a href="#contact" class="cta cta-secondary">Get In Touch</a>
-      </div>
+      <h1>Premium web experiences</h1>
+      <p>Frontend Engineer crafting high-performance applications with React, Next.js, and Web Components. 3+ years of excellence.</p>
+      <a href="#work" class="cta">View Work</a>
     </div>
   </section>
 
   <section class="work container">
-    <div class="section-label">Featured Work</div>
-    <h2>Projects I'm Proud Of</h2>
-    <div class="projects-grid">
-      <div class="project-card scroll-reveal">
+    <div class="work-label">Featured Projects</div>
+    <h2>Selected Work</h2>
+    <div class="projects">
+      <div class="project">
         <div class="project-image"><span>🤖</span></div>
         <div class="project-content">
           <div class="project-tag">SaaS / WebRTC</div>
           <h3>SparkTG AI Chatbot</h3>
-          <p>Embeddable SaaS widgets with real-time voice calling, WebRTC integration, and modular cross-platform architecture.</p>
+          <p>Embeddable SaaS widgets with real-time voice calling, WebRTC integration, and cross-platform modular architecture. Built for scale with production-grade infrastructure.</p>
         </div>
       </div>
 
-      <div class="project-card scroll-reveal">
+      <div class="project">
         <div class="project-image"><span>👗</span></div>
         <div class="project-content">
           <div class="project-tag">E-commerce / Next.js</div>
           <h3>Ellemora Fashion</h3>
-          <p>Full-featured e-commerce platform with Stripe payments, SSR, PWA support, and Strapi CMS backend integration.</p>
+          <p>Full-featured e-commerce platform with Stripe payments, SSR optimization, PWA support, and Strapi CMS integration. 98 Lighthouse score.</p>
         </div>
       </div>
 
-      <div class="project-card scroll-reveal">
+      <div class="project">
         <div class="project-image"><span>📊</span></div>
         <div class="project-content">
           <div class="project-tag">Dashboard / Design</div>
           <h3>SparkTG Dashboard</h3>
-          <p>Modern analytics dashboard redesigned with atomic design principles, ShadCN UI, and Tailwind CSS.</p>
+          <p>Modern analytics dashboard redesigned using atomic design principles, ShadCN UI components, and Tailwind CSS. 25% UX improvement.</p>
         </div>
       </div>
 
-      <div class="project-card scroll-reveal">
+      <div class="project">
         <div class="project-image"><span>💳</span></div>
         <div class="project-content">
           <div class="project-tag">FinTech / Enterprise</div>
-          <h3>Alight Solutions Dashboard</h3>
-          <p>Enterprise financial dashboard with 25% UX improvement, WCAG accessibility, and 40% performance optimization.</p>
+          <h3>Alight Solutions</h3>
+          <p>Enterprise financial dashboard with WCAG accessibility, 40% performance optimization, and 25% UX improvement. Used by 500+ users.</p>
         </div>
       </div>
 
-      <div class="project-card scroll-reveal">
+      <div class="project">
         <div class="project-image"><span>💻</span></div>
         <div class="project-content">
           <div class="project-tag">Marketing / SEO</div>
-          <h3>SparkTG Marketing Site</h3>
-          <p>Modern marketing website with Next.js, responsive design, full SEO optimization, and 98 Lighthouse score.</p>
+          <h3>SparkTG Marketing</h3>
+          <p>Modern marketing website with Next.js, responsive design, full SEO optimization, and 98+ Lighthouse performance scores.</p>
         </div>
       </div>
 
-      <div class="project-card scroll-reveal">
+      <div class="project">
         <div class="project-image"><span>📝</span></div>
         <div class="project-content">
           <div class="project-tag">PWA / Offline-First</div>
           <h3>Pocket Notes App</h3>
-          <p>Offline-first PWA with IndexedDB storage, Service Workers, push notifications, and cloud sync.</p>
+          <p>Offline-first PWA with IndexedDB storage, Service Workers, push notifications, and cloud sync. Works seamlessly offline.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="about container">
-    <div class="section-label">About</div>
-    <h2>Building the Web</h2>
+    <h2>About</h2>
     <div class="about-content">
       <p><strong>Frontend Engineer</strong> with 3+ years building scalable, high-performance applications. Specialized in React.js, Next.js, TypeScript, and modern web architecture.</p>
+      <p><strong>Track Record:</strong> 35%+ performance improvements on enterprise dashboards. 12+ production applications. 98+ Lighthouse scores. WCAG AA compliance.</p>
       <p><strong>Currently:</strong> Building embeddable SaaS widgets at SparkTG with WebRTC, real-time features, and cross-browser support.</p>
-      <p><strong>Track Record:</strong> 35%+ performance improvements on enterprise dashboards. Shipped 12+ production applications. 98+ Lighthouse scores. WCAG AA compliance.</p>
-      
-      <div class="skills-grid">
-        <div class="skill-tag">React.js</div>
-        <div class="skill-tag">Next.js</div>
-        <div class="skill-tag">TypeScript</div>
-        <div class="skill-tag">Tailwind CSS</div>
-        <div class="skill-tag">Web Components</div>
-        <div class="skill-tag">REST APIs</div>
-        <div class="skill-tag">GraphQL</div>
-        <div class="skill-tag">Performance</div>
-        <div class="skill-tag">Accessibility</div>
-        <div class="skill-tag">CI/CD</div>
+
+      <div class="skills">
+        <div class="skill">React.js</div>
+        <div class="skill">Next.js</div>
+        <div class="skill">TypeScript</div>
+        <div class="skill">Web Components</div>
+        <div class="skill">Tailwind CSS</div>
+        <div class="skill">Performance</div>
+        <div class="skill">Accessibility</div>
+        <div class="skill">GraphQL</div>
+        <div class="skill">REST APIs</div>
+        <div class="skill">CI/CD</div>
       </div>
     </div>
   </section>
 
-  <section class="contact container" id="contact">
-    <div class="section-label">Contact</div>
-    <h2>Let's Build Something</h2>
-    <form class="contact-form" onsubmit="return handleSubmit(event)">
-      <div class="form-group">
-        <input type="email" placeholder="your@email.com" required>
-      </div>
-      <div class="form-group">
-        <textarea placeholder="Tell me about your project..." rows="6" required></textarea>
-      </div>
-      <button type="submit">Send Message</button>
-    </form>
+  <section class="contact">
+    <div class="container">
+      <h2>Let's Build</h2>
+      <p>Got an exciting project? Let's talk.</p>
+      <a href="mailto:work.iamakshat@gmail.com" class="contact-cta">Get In Touch</a>
+    </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>© 2026 Akshat Kumar Singh • <a href="https://github.com/Akshat53" target="_blank">GitHub</a> • <a href="https://linkedin.com/in/akshat53" target="_blank">LinkedIn</a></p>
+      <p>© 2026 Akshat Kumar Singh • <a href="https://github.com/Akshat53">GitHub</a> • <a href="https://linkedin.com/in/akshat53">LinkedIn</a></p>
     </div>
   </footer>
-
-  <script>
-    // Scroll reveal animations
-    const revealElements = document.querySelectorAll('.scroll-reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-    revealElements.forEach(el => observer.observe(el));
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Form submission
-    function handleSubmit(e) {
-      e.preventDefault();
-      const email = e.target.querySelector('input[type="email"]').value;
-      const message = e.target.querySelector('textarea').value;
-      window.location.href = `mailto:work.iamakshat@gmail.com?subject=Portfolio Inquiry&body=${encodeURIComponent(message)}`;
-      e.target.reset();
-      return false;
-    }
-  </script>
 </body>
 </html>

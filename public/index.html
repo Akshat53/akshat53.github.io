@@ -1,44 +1,129 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Akshat Singh - Full-stack developer portfolio showcasing projects and skills"
-    />
-    <link rel="apple-touch-icon" href="/fav.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="/manifest.json" />
-    <!--
-      Notice the use of  in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Akshat Singh - Full-stack Developer Portfolio</title>
-  <script defer src="/static/js/bundle.js"></script></head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Akshat Kumar Singh - Frontend Engineer. Building scalable, interactive experiences with React, Next.js, and Web Components.">
+  <title>Akshat Kumar Singh | Frontend Engineer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fbfbfd; color: #1d1d1f; line-height: 1.6; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 50; backdrop-filter: blur(10px); background: rgba(251, 251, 253, 0.8); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 1rem clamp(20px, 5vw, 56px); }
+    nav a { text-decoration: none; color: #1d1d1f; font-weight: 500; font-size: 0.95rem; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: clamp(72px, 13vh, 148px) clamp(20px, 5vw, 56px); }
+    .hero h1 { font-size: clamp(2.6rem, 7.4vw, 5.4rem); font-weight: 640; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 1.5rem; max-width: 16ch; }
+    .hero p { font-size: clamp(1.12rem, 1.9vw, 1.4rem); line-height: 1.5; color: #48484a; max-width: 58ch; margin-bottom: 2rem; }
+    .cta { display: inline-block; padding: 12px 24px; background: #0b66c3; color: white; text-decoration: none; border-radius: 8px; font-weight: 500; transition: all 0.3s ease; }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(11, 102, 195, 0.2); }
+    .work { padding: clamp(72px, 11vw, 152px) clamp(20px, 5vw, 56px); background: #ffffff; }
+    .work h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); font-weight: 600; letter-spacing: -0.028em; margin-bottom: 3rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(18px, 2.4vw, 26px); }
+    .project-card { background: white; border: 1px solid rgba(0,0,0,0.06); border-radius: 22px; overflow: hidden; transition: all 0.4s cubic-bezier(.2,.7,.2,1); cursor: pointer; }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.1); box-shadow: 0 18px 60px rgba(0,0,0,0.08); }
+    .project-image { aspect-ratio: 16/10; background: #f5f5f7; display: flex; align-items: center; justify-content: center; font-size: 4rem; border-bottom: 1px solid rgba(0,0,0,0.10); overflow: hidden; }
+    .project-image span { transition: transform 0.4s ease; }
+    .project-card:hover .project-image span { transform: scale(1.028); }
+    .project-content { padding: 22px 24px 26px; }
+    .project-tag { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86868b; font-weight: 600; margin-bottom: 9px; display: flex; align-items: center; gap: 8px; }
+    .project-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--tint, #0b66c3); }
+    .project-content h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 9px; letter-spacing: -0.016em; }
+    .project-content p { font-size: 0.95rem; line-height: 1.65; color: #48484a; letter-spacing: -0.011em; }
+    .about { padding: clamp(72px, 11vw, 152px) clamp(20px, 5vw, 56px); background: #f5f5f7; }
+    .about h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); font-weight: 600; letter-spacing: -0.028em; margin-bottom: 2rem; }
+    .about-content { max-width: 58ch; }
+    .about-content p { font-size: 1.06rem; line-height: 1.65; color: #48484a; margin-bottom: 1.5rem; letter-spacing: -0.011em; }
+    .contact { padding: clamp(72px, 11vw, 152px) clamp(20px, 5vw, 56px); background: #ffffff; }
+    .contact h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); font-weight: 600; letter-spacing: -0.028em; margin-bottom: 2rem; }
+    .contact-form { max-width: 58ch; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 12px 16px; margin-bottom: 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; font-family: inherit; font-size: 0.95rem; }
+    .contact-form button { padding: 12px 24px; background: #0b66c3; color: white; border: none; border-radius: 8px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; }
+    .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(11, 102, 195, 0.2); }
+    footer { padding: clamp(52px, 7vw, 96px) clamp(20px, 5vw, 56px); background: #ffffff; border-top: 1px solid rgba(0,0,0,0.06); text-align: center; }
+    footer p { font-size: 0.875rem; color: #86868b; letter-spacing: -0.011em; }
+    footer a { color: #0b66c3; text-decoration: none; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <nav class="container"><a href="#home">AKSHAT</a></nav>
+  <section id="home" class="hero container">
+    <div class="fade-in visible">
+      <h1>Building scalable, interactive experiences with React.</h1>
+      <p>Frontend Engineer specializing in React.js, Next.js, and Web Components. 3+ years crafting high-performance, user-centric applications.</p>
+      <a href="#work" class="cta">View My Work</a>
+    </div>
+  </section>
+  <section id="work" class="work container">
+    <h2 class="fade-in">Featured Work</h2>
+    <div class="projects-grid">
+      <div class="project-card fade-in" style="--tint: #5f7a6a;">
+        <div class="project-image"><span>🤖</span></div>
+        <div class="project-content"><div class="project-tag">SaaS Widgets</div><h3>SparkTG AI Chatbot & Dialer</h3><p>Embeddable SaaS widgets with WebRTC voice calling, modular architecture for cross-platform integration.</p></div>
+      </div>
+      <div class="project-card fade-in" style="--tint: #8a6f47;">
+        <div class="project-image"><span>👗</span></div>
+        <div class="project-content"><div class="project-tag">E-commerce</div><h3>Ellemora Fashion Platform</h3><p>Full-featured Next.js e-commerce with Stripe payments, SSR, PWA, and Strapi CMS backend.</p></div>
+      </div>
+      <div class="project-card fade-in" style="--tint: #6d5ce7;">
+        <div class="project-image"><span>📊</span></div>
+        <div class="project-content"><div class="project-tag">Dashboard UI</div><h3>SparkTG Dashboard Revamp</h3><p>Modern dashboard UI redesign using atomic design principles, ShadCN UI, and Tailwind CSS.</p></div>
+      </div>
+      <div class="project-card fade-in" style="--tint: #b5732f;">
+        <div class="project-image"><span>💳</span></div>
+        <div class="project-content"><div class="project-tag">FinTech</div><h3>Alight Solutions Dashboard</h3><p>Enterprise FinTech dashboard with 25% UX improvement through accessibility and performance optimization.</p></div>
+      </div>
+      <div class="project-card fade-in" style="--tint: #23784f;">
+        <div class="project-image"><span>💻</span></div>
+        <div class="project-content"><div class="project-tag">Website</div><h3>SparkTG Client Website</h3><p>Modern marketing website with Next.js, responsive design, and full SEO optimization.</p></div>
+      </div>
+      <div class="project-card fade-in" style="--tint: #3f6fd8;">
+        <div class="project-image"><span>📝</span></div>
+        <div class="project-content"><div class="project-tag">PWA</div><h3>Pocket Notes App</h3><p>Offline-first PWA note application with IndexedDB, Service Workers, and push notifications.</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about container">
+    <h2 class="fade-in">About Me</h2>
+    <div class="about-content fade-in">
+      <p><strong>Frontend Engineer</strong> with 3+ years building high-performance, scalable applications using React.js, Next.js, and Web Components.</p>
+      <p><strong>Expertise:</strong> React.js, Next.js, TypeScript, Tailwind CSS, Web Components, REST APIs, WebRTC, PWA, SEO optimization.</p>
+      <p><strong>Experience:</strong> Currently at SparkTG building embeddable SaaS widgets. Previously at Wipro (FinTech), Ellemora (E-commerce), and various freelance projects.</p>
+      <p><strong>Skills:</strong> Performance optimization (35%+ improvements), accessibility (WCAG), responsive design, CI/CD, Docker, Git.</p>
+    </div>
+  </section>
+  <section id="contact" class="contact container">
+    <h2 class="fade-in">Let's Work Together</h2>
+    <form class="contact-form fade-in" onsubmit="return handleSubmit(event)">
+      <input type="email" placeholder="your@email.com" required>
+      <textarea placeholder="Tell me about your project..." rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <footer class="fade-in visible">
+    <div class="container">
+      <p>© 2026 Akshat Kumar Singh. | <a href="https://linkedin.com/in/akshat53" target="_blank">LinkedIn</a> | <a href="https://github.com/Akshat53" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
+  <script>
+    const elements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    elements.forEach(el => observer.observe(el));
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); const target = document.querySelector(a.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth' }); });
+    });
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      const message = e.target.querySelector('textarea').value;
+      window.location.href = `mailto:work.iamakshat@gmail.com?subject=Portfolio Inquiry&body=${encodeURIComponent(message)}`;
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
 </html>

@@ -1,65 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 export default function Projects() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
     {
       id: 1,
       title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce platform with payment integration',
+      type: 'Full-stack • 2024',
+      description: 'A complete e-commerce solution with payment integration, inventory management, and real-time analytics.',
       tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       image: '🛒',
-      github: '#',
-      live: '#',
+      color: 'from-blue-500 to-cyan-500',
     },
     {
       id: 2,
       title: 'Task Management App',
-      description: 'Collaborative task management with real-time updates',
-      tags: ['React', 'Firebase', 'Tailwind', 'Framer Motion'],
-      image: '✅',
-      github: '#',
-      live: '#',
+      type: 'React • Realtime • 2024',
+      description: 'Collaborative task management with real-time updates, drag-and-drop, and team collaboration features.',
+      tags: ['React', 'Firebase', 'Tailwind'],
+      image: '✓',
+      color: 'from-green-500 to-emerald-500',
     },
     {
       id: 3,
       title: 'Analytics Dashboard',
-      description: 'Real-time analytics dashboard with data visualization',
-      tags: ['React', 'Chart.js', 'Node.js', 'PostgreSQL'],
+      type: 'Data Visualization • 2024',
+      description: 'Real-time analytics dashboard with interactive charts, filtering, and data-driven insights.',
+      tags: ['React', 'Chart.js', 'PostgreSQL'],
       image: '📊',
-      github: '#',
-      live: '#',
+      color: 'from-purple-500 to-pink-500',
     },
     {
       id: 4,
       title: 'Chat Application',
-      description: 'Real-time messaging app with user authentication',
-      tags: ['React', 'Socket.io', 'Express', 'MongoDB'],
+      type: 'Realtime • Backend • 2023',
+      description: 'Full-featured chat application with WebSocket support, authentication, and message persistence.',
+      tags: ['React', 'Socket.io', 'Express'],
       image: '💬',
-      github: '#',
-      live: '#',
-    },
-    {
-      id: 5,
-      title: 'Weather App',
-      description: 'Beautiful weather app with location-based forecasts',
-      tags: ['React', 'Weather API', 'Geolocation', 'Tailwind'],
-      image: '🌤️',
-      github: '#',
-      live: '#',
-    },
-    {
-      id: 6,
-      title: 'Portfolio Builder',
-      description: 'No-code portfolio builder for developers',
-      tags: ['React', 'Node.js', 'Stripe', 'AWS'],
-      image: '🎨',
-      github: '#',
-      live: '#',
+      color: 'from-orange-500 to-red-500',
     },
   ];
 
@@ -67,14 +49,12 @@ export default function Projects() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -83,80 +63,102 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="work" className="py-20 md:py-32 px-6 md:px-12 bg-white">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           variants={containerVariants}
         >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              A showcase of my recent work and creative projects
-            </p>
-          </motion.div>
-
-          {/* Projects Grid */}
-          <motion.div
-            variants={containerVariants}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {projects.map((project) => (
+          {/* Project Grid - Ifra inspired image-focused gallery style */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {projects.map((project, idx) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                onHoverStart={() => setSelectedProject(project.id)}
+                onHoverEnd={() => setSelectedProject(null)}
+                className="group cursor-pointer"
               >
-                {/* Project Image/Icon */}
-                <div className="h-48 bg-gradient-to-br from-blue-400/20 to-purple-400/20 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
-                  {project.image}
-                </div>
+                {/* Project Image Box */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className={`relative h-64 md:h-80 rounded-xl bg-gradient-to-br ${project.color} overflow-hidden mb-6 flex items-center justify-center`}
+                >
+                  <motion.div
+                    animate={selectedProject === project.id ? { scale: 1.2 } : { scale: 1 }}
+                    className="text-8xl opacity-80"
+                  >
+                    {project.image}
+                  </motion.div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
+                  {/* Hover overlay - subtle */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={selectedProject === project.id ? { opacity: 1 } : { opacity: 0 }}
+                    className="absolute inset-0 bg-black/20 flex items-center justify-center"
+                  >
+                    <span className="text-white font-medium">View Details</span>
+                  </motion.div>
+                </motion.div>
+
+                {/* Project Info */}
+                <div className="space-y-3">
+                  <motion.div
+                    animate={selectedProject === project.id ? { x: 10 } : { x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <h3 className="text-2xl md:text-3xl font-bold text-black group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 font-medium mt-2">{project.type}</p>
+                  </motion.div>
+
+                  <p className="text-gray-700 leading-relaxed text-sm md:text-base">
                     {project.description}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 pt-2">
                     {project.tags.map((tag) => (
-                      <span
+                      <motion.span
                         key={tag}
-                        className="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
+                        whileHover={{ scale: 1.1 }}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-black hover:text-white transition-colors"
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      <Github size={18} />
-                      Code
+                  <motion.div
+                    animate={selectedProject === project.id ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex gap-4 pt-4"
+                  >
+                    <a href="#" className="text-sm font-medium text-black hover:text-blue-600 transition-colors">
+                      View Code →
                     </a>
-                    <a
-                      href={project.live}
-                      className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      <ExternalLink size={18} />
-                      Live
+                    <a href="#" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+                      Live Demo →
                     </a>
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* View all projects link */}
+          <motion.div
+            variants={itemVariants}
+            className="text-center mt-16 md:mt-24"
+          >
+            <a href="#" className="text-lg font-medium text-black hover:text-blue-600 transition-colors">
+              View all 50+ projects →
+            </a>
           </motion.div>
         </motion.div>
       </div>

@@ -1,101 +1,106 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
-
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-50 pt-20"
-    >
-      <div className="max-w-7xl mx-auto px-6 w-full">
+    <section id="home" className="min-h-screen flex flex-col justify-center pt-20 px-6 md:px-12 bg-white">
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6"
         >
-          {/* Animated Badge */}
-          <motion.div variants={itemVariants} className="mb-6 inline-block">
-            <div className="px-4 py-2 rounded-full bg-blue-50 border border-blue-200">
-              <span className="text-blue-600 text-sm font-medium">
-                Welcome to my portfolio
-              </span>
-            </div>
+          {/* Mini Badge */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="inline-block"
+          >
+            <span className="text-sm font-medium text-gray-600">Full-stack developer based in India</span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Main Heading - Anamaya style (clear, large) */}
           <motion.h1
-            variants={itemVariants}
-            className="text-6xl md:text-7xl font-bold mb-6 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight"
           >
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Akshat Singh
+            I build <br />
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              complete systems
             </span>
           </motion.h1>
 
           {/* Subheading */}
           <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed"
           >
-            Full-stack developer crafting beautiful, functional web experiences
+            Design • Development • Deploy. I craft full-stack web experiences that are beautiful, functional, and built to scale.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Stats - Anamaya style */}
           <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="flex flex-wrap gap-12 md:gap-20 pt-8"
+          >
+            {[
+              { number: '50+', label: 'Projects Built' },
+              { number: '3+', label: 'Years Experience' },
+              { number: '100%', label: 'Client Satisfaction' },
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-4xl md:text-5xl font-bold">{stat.number}</p>
+                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* CTA - Minimal, Anamaya style */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 pt-10"
           >
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#projects"
-              className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href="#work"
+              className="px-8 py-4 bg-black text-white font-medium rounded-lg hover:bg-gray-900 transition-colors text-center"
             >
-              View My Work <ArrowRight size={20} />
+              View My Work
             </motion.a>
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               href="#contact"
-              className="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-gray-400 transition-colors"
+              className="px-8 py-4 border border-gray-400 text-black font-medium rounded-lg hover:border-black transition-colors text-center"
             >
               Get In Touch
             </motion.a>
           </motion.div>
-
-          {/* Floating Animation */}
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            variants={itemVariants}
-            className="inline-block"
-          >
-            <div className="w-16 h-24 bg-gradient-to-b from-blue-400/20 to-purple-400/20 rounded-2xl backdrop-blur-sm border border-blue-200/50"></div>
-          </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator - Ifra style subtle */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ delay: 1, duration: 2, repeat: Infinity }}
+        className="flex justify-center mt-20"
+      >
+        <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </motion.div>
     </section>
   );
 }

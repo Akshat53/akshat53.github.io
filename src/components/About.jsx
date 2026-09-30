@@ -3,18 +3,13 @@ import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 
 export default function About() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -23,74 +18,100 @@ export default function About() {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.6 },
     },
   };
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="py-20 md:py-32 px-6 md:px-12 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
-          variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 gap-12 items-center"
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start"
         >
-          {/* Left Side - Image/Graphic */}
-          <motion.div variants={itemVariants} className="relative h-96">
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl"
-            ></motion.div>
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-400/30 to-purple-400/30 backdrop-blur-sm border border-blue-200/50 flex items-center justify-center">
-              <span className="text-6xl">💻</span>
+          {/* Left side - Text content */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div>
+              <h2 className="text-5xl md:text-6xl font-bold mb-4">About</h2>
+              <div className="w-16 h-1 bg-black"></div>
             </div>
+
+            <div className="space-y-4">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                I'm Akshat Singh, a full-stack developer from India with a passion for building scalable, beautiful web applications.
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                I specialize in modern web technologies and have experience building complete systems from design to deployment. Each project is an opportunity to solve real problems and create meaningful experiences.
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing knowledge with the community.
+              </p>
+            </div>
+
+            {/* Stats - Anamaya style */}
+            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-8 pt-6 border-t border-gray-300">
+              <div>
+                <p className="text-4xl font-bold">50+</p>
+                <p className="text-sm text-gray-600 mt-1">Projects Completed</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold">3+</p>
+                <p className="text-sm text-gray-600 mt-1">Years Experience</p>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Side - Content */}
-          <motion.div variants={containerVariants}>
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl md:text-5xl font-bold mb-6"
-            >
-              About Me
-            </motion.h2>
+          {/* Right side - Skills grouped */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Frontend</h3>
+              <div className="flex flex-wrap gap-3">
+                {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'].map((skill) => (
+                  <motion.span
+                    key={skill}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="px-4 py-2 bg-white rounded-lg text-sm font-medium text-gray-700 border border-gray-300 hover:border-black transition-colors"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
 
-            <motion.div variants={itemVariants} className="space-y-4 text-gray-700">
-              <p className="text-lg leading-relaxed">
-                I'm a passionate full-stack developer with a keen eye for design
-                and user experience. With experience in building web applications
-                using React, Node.js, and modern web technologies, I create
-                solutions that are both beautiful and functional.
-              </p>
-              <p className="text-lg leading-relaxed">
-                My journey in tech has been driven by curiosity and a desire to
-                solve real-world problems. I believe in writing clean, maintainable
-                code and collaborating closely with teams to deliver exceptional
-                results.
-              </p>
-            </motion.div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Backend</h3>
+              <div className="flex flex-wrap gap-3">
+                {['Node.js', 'Express', 'Python', 'PostgreSQL', 'MongoDB'].map((skill) => (
+                  <motion.span
+                    key={skill}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="px-4 py-2 bg-white rounded-lg text-sm font-medium text-gray-700 border border-gray-300 hover:border-black transition-colors"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
 
-            {/* Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-3 gap-6 mt-8"
-            >
-              <div className="text-center">
-                <p className="text-3xl font-bold text-blue-600">50+</p>
-                <p className="text-gray-600 text-sm">Projects</p>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Tools & Platforms</h3>
+              <div className="flex flex-wrap gap-3">
+                {['Git', 'Docker', 'AWS', 'Vercel', 'CI/CD'].map((skill) => (
+                  <motion.span
+                    key={skill}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="px-4 py-2 bg-white rounded-lg text-sm font-medium text-gray-700 border border-gray-300 hover:border-black transition-colors"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
               </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-blue-600">3+</p>
-                <p className="text-gray-600 text-sm">Years Exp.</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-blue-600">100%</p>
-                <p className="text-gray-600 text-sm">Dedicated</p>
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

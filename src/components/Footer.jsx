@@ -5,44 +5,43 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-gray-950 text-white py-12 md:py-16 px-6 md:px-12 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-6"
-          >
-            <p className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Akshat Singh
-            </p>
-          </motion.div>
+          {/* Left side */}
+          <div>
+            <p className="text-2xl font-bold">AS</p>
+            <p className="text-gray-400 text-sm mt-2">Full-stack developer & designer</p>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-gray-400 mb-6"
-          >
-            Building beautiful experiences, one line of code at a time.
-          </motion.p>
+          {/* Center - Links */}
+          <div className="flex gap-8">
+            {[
+              { label: 'Work', href: '#work' },
+              { label: 'About', href: '#about' },
+              { label: 'Contact', href: '#contact' },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="border-t border-gray-700 pt-6"
-          >
-            <p className="text-gray-400">
-              © {currentYear} Akshat Singh. All rights reserved.
-            </p>
-          </motion.div>
+          {/* Right side - Credits */}
+          <div className="text-right text-gray-400 text-sm">
+            <p>© {currentYear} Akshat Singh</p>
+            <p className="mt-1">Built with React & Framer Motion</p>
+          </div>
         </motion.div>
       </div>
     </footer>

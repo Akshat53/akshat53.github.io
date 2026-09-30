@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Akshat Kumar Singh - Frontend Engineer specializing in React, Next.js, and Web Components">
+  <title>Akshat Kumar Singh - Frontend Engineer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      background: #fbfbfd; 
+      color: #1d1d1f; 
+      line-height: 1.6;
+    }
+    
+    /* Fixed Navbar */
+    nav { 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      z-index: 1000;
+      backdrop-filter: blur(10px); 
+      background: rgba(251, 251, 253, 0.85); 
+      border-bottom: 1px solid rgba(0,0,0,0.06); 
+      padding: 1rem clamp(20px, 5vw, 56px); 
+    }
+    nav a { 
+      text-decoration: none; 
+      color: #1d1d1f; 
+      font-weight: 600; 
+      font-size: 0.95rem; 
+    }
+    
+    .container { 
+      max-width: 1120px; 
+      margin: 0 auto; 
+      padding: 0 clamp(20px, 5vw, 56px); 
+    }
+    
+    /* Hero Section */
+    .hero { 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      padding: clamp(120px, 15vh, 180px) clamp(20px, 5vw, 56px); 
+      background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);
+    }
+    .hero h1 { 
+      font-size: clamp(2.8rem, 8vw, 5.6rem); 
+      font-weight: 700; 
+      letter-spacing: -0.03em; 
+      line-height: 1.1; 
+      margin-bottom: 1.5rem; 
+      max-width: 16ch;
+      background: linear-gradient(135deg, #1d1d1f 0%, #48484a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p { 
+      font-size: clamp(1.1rem, 2vw, 1.35rem); 
+      line-height: 1.6; 
+      color: #48484a; 
+      max-width: 58ch; 
+      margin-bottom: 2.5rem; 
+      letter-spacing: -0.011em;
+    }
+    .cta { 
+      display: inline-block; 
+      padding: 14px 32px; 
+      background: linear-gradient(135deg, #0b66c3 0%, #0052a3 100%);
+      color: white; 
+      text-decoration: none; 
+      border-radius: 12px; 
+      font-weight: 600; 
+      transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); 
+      box-shadow: 0 10px 30px rgba(11, 102, 195, 0.2);
+    }
+    .cta:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 0 20px 50px rgba(11, 102, 195, 0.3); 
+    }
+    
+    /* Work Section */
+    .work { 
+      padding: clamp(100px, 13vh, 160px) clamp(20px, 5vw, 56px); 
+      background: #ffffff; 
+    }
+    .work h2 { 
+      font-size: clamp(2.2rem, 5vw, 3.6rem); 
+      font-weight: 700; 
+      letter-spacing: -0.028em; 
+      margin-bottom: 4rem;
+      color: #1d1d1f;
+    }
+    
+    .projects-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); 
+      gap: clamp(24px, 3vw, 32px); 
+    }
+    
+    .project-card { 
+      background: white; 
+      border: 1px solid rgba(0,0,0,0.08); 
+      border-radius: 20px; 
+      overflow: hidden; 
+      transition: all 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); 
+      cursor: pointer;
+      position: relative;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(11, 102, 195, 0.02);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    .project-card:hover::before {
+      opacity: 1;
+    }
+    .project-card:hover { 
+      transform: translateY(-8px); 
+      border-color: rgba(11, 102, 195, 0.2);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.1); 
+    }
+    
+    .project-image { 
+      aspect-ratio: 16/10; 
+      background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 5rem; 
+      border-bottom: 1px solid rgba(0,0,0,0.08); 
+      overflow: hidden;
+      position: relative;
+    }
+    .project-image span { 
+      transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); 
+      display: block;
+    }
+    .project-card:hover .project-image span { 
+      transform: scale(1.08) rotate(5deg); 
+    }
+    
+    .project-content { 
+      padding: 28px 28px 32px; 
+      position: relative;
+      z-index: 2;
+    }
+    .project-tag { 
+      font-size: 0.7rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.12em; 
+      color: #0b66c3; 
+      font-weight: 700; 
+      margin-bottom: 12px; 
+    }
+    .project-content h3 { 
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      margin-bottom: 10px; 
+      letter-spacing: -0.016em;
+      color: #1d1d1f;
+    }
+    .project-content p { 
+      font-size: 0.95rem; 
+      line-height: 1.65; 
+      color: #48484a; 
+      letter-spacing: -0.011em;
+    }
+    
+    /* About Section */
+    .about { 
+      padding: clamp(100px, 13vh, 160px) clamp(20px, 5vw, 56px); 
+      background: linear-gradient(135deg, #f5f5f7 0%, #fbfbfd 100%);
+    }
+    .about h2 { 
+      font-size: clamp(2.2rem, 5vw, 3.6rem); 
+      font-weight: 700; 
+      letter-spacing: -0.028em; 
+      margin-bottom: 3rem;
+    }
+    .about-content { 
+      max-width: 65ch; 
+    }
+    .about-content p { 
+      font-size: 1.08rem; 
+      line-height: 1.7; 
+      color: #48484a; 
+      margin-bottom: 1.8rem; 
+      letter-spacing: -0.011em;
+    }
+    
+    /* Contact Section */
+    .contact { 
+      padding: clamp(100px, 13vh, 160px) clamp(20px, 5vw, 56px); 
+      background: #ffffff; 
+    }
+    .contact h2 { 
+      font-size: clamp(2.2rem, 5vw, 3.6rem); 
+      font-weight: 700; 
+      letter-spacing: -0.028em; 
+      margin-bottom: 3rem;
+    }
+    .contact-form { 
+      max-width: 58ch; 
+    }
+    .contact-form input, 
+    .contact-form textarea { 
+      width: 100%; 
+      padding: 14px 18px; 
+      margin-bottom: 18px; 
+      border: 1px solid rgba(0,0,0,0.12); 
+      border-radius: 10px; 
+      font-family: inherit; 
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #0b66c3;
+      box-shadow: 0 0 0 3px rgba(11, 102, 195, 0.1);
+    }
+    .contact-form button { 
+      padding: 14px 32px; 
+      background: linear-gradient(135deg, #0b66c3 0%, #0052a3 100%);
+      color: white; 
+      border: none; 
+      border-radius: 10px; 
+      font-weight: 600; 
+      cursor: pointer; 
+      transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(11, 102, 195, 0.2);
+    }
+    .contact-form button:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 0 20px 50px rgba(11, 102, 195, 0.3);
+    }
+    
+    /* Footer */
+    footer { 
+      padding: clamp(60px, 9vw, 120px) clamp(20px, 5vw, 56px); 
+      background: #fbfbfd; 
+      border-top: 1px solid rgba(0,0,0,0.06); 
+      text-align: center; 
+    }
+    footer p { 
+      font-size: 0.875rem; 
+      color: #86868b; 
+      letter-spacing: -0.011em; 
+    }
+    footer a { 
+      color: #0b66c3; 
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    /* Animations */
+    .fade-in { 
+      opacity: 0; 
+      transform: translateY(30px); 
+      transition: all 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); 
+    }
+    .fade-in.visible { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  </style>
+</head>
+<body>
+  <nav class="container">
+    <a href="#home">AKSHAT</a>
+  </nav>
+  
+  <section id="home" class="hero container">
+    <div>
+      <h1 class="fade-in visible">Building premium digital experiences with modern web technologies.</h1>
+      <p class="fade-in visible">Frontend Engineer. 3+ years crafting scalable, beautiful applications using React, Next.js, and Web Components.</p>
+      <a href="#work" class="cta fade-in visible">View My Work →</a>
+    </div>
+  </section>
+
+  <section id="work" class="work container">
+    <h2 class="fade-in">Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card fade-in">
+        <div class="project-image"><span>🤖</span></div>
+        <div class="project-content">
+          <div class="project-tag">SaaS</div>
+          <h3>SparkTG AI Chatbot & Dialer</h3>
+          <p>Embeddable SaaS widgets with WebRTC voice calling, real-time messaging, and modular cross-platform architecture.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image"><span>👗</span></div>
+        <div class="project-content">
+          <div class="project-tag">E-commerce</div>
+          <h3>Ellemora Fashion Platform</h3>
+          <p>Full-featured Next.js e-commerce with Stripe integration, SSR, PWA support, and Strapi CMS backend.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image"><span>📊</span></div>
+        <div class="project-content">
+          <div class="project-tag">Dashboard</div>
+          <h3>SparkTG Dashboard Redesign</h3>
+          <p>Modern analytics dashboard using atomic design principles, ShadCN UI components, and Tailwind CSS.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image"><span>💳</span></div>
+        <div class="project-content">
+          <div class="project-tag">FinTech</div>
+          <h3>Alight Solutions Dashboard</h3>
+          <p>Enterprise financial dashboard with 25% UX improvement, WCAG accessibility, and 40% performance gain.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image"><span>💻</span></div>
+        <div class="project-content">
+          <div class="project-tag">Website</div>
+          <h3>SparkTG Marketing Site</h3>
+          <p>Modern marketing website with Next.js, responsive design, full SEO optimization, and fast load times.</p>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-image"><span>📝</span></div>
+        <div class="project-content">
+          <div class="project-tag">PWA</div>
+          <h3>Pocket Notes App</h3>
+          <p>Offline-first PWA with IndexedDB storage, Service Workers, push notifications, and cloud sync.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about container">
+    <h2 class="fade-in">About Me</h2>
+    <div class="about-content">
+      <p class="fade-in"><strong>Frontend Engineer</strong> with 3+ years building high-performance, scalable applications. Specialized in React.js, Next.js, TypeScript, and modern web technologies.</p>
+      <p class="fade-in"><strong>Currently:</strong> Building embeddable SaaS widgets at SparkTG with WebRTC integration and real-time features.</p>
+      <p class="fade-in"><strong>Skills:</strong> React, Next.js, TypeScript, Tailwind CSS, Web Components, REST APIs, GraphQL, WebRTC, PWA, Performance Optimization, Accessibility (WCAG), CI/CD, Docker.</p>
+      <p class="fade-in"><strong>Impact:</strong> 35%+ performance improvements on enterprise dashboards. Shipped 12+ production applications. Mentored 5+ junior developers.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact container">
+    <h2 class="fade-in">Let's Work Together</h2>
+    <form class="contact-form fade-in" onsubmit="return handleSubmit(event)">
+      <input type="email" placeholder="your@email.com" required>
+      <textarea placeholder="Tell me about your project..." rows="6" required></textarea>
+      <button type="submit">Send Message →</button>
+    </form>
+  </section>
+
+  <footer class="fade-in visible">
+    <div class="container">
+      <p>© 2026 Akshat Kumar Singh. <a href="https://github.com/Akshat53" target="_blank">GitHub</a> • <a href="https://linkedin.com/in/akshat53" target="_blank">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const elements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => {
+      if (!el.classList.contains('visible')) {
+        observer.observe(el);
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      const message = e.target.querySelector('textarea').value;
+      window.location.href = `mailto:work.iamakshat@gmail.com?subject=Portfolio Inquiry&body=${encodeURIComponent(message)}`;
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>

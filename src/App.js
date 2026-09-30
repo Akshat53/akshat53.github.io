@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ScrollMarquee from './components/ScrollMarquee';
-import Projects from './components/Projects';
+import FeaturedWork from './components/FeaturedWork';
+import AllProjects from './components/AllProjects';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -17,11 +17,11 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-white overflow-x-hidden">
+    <div className="bg-white text-gray-950 overflow-x-hidden">
       <Navbar scrollY={scrollY} />
       <Hero />
-      <ScrollMarquee />
-      <Projects />
+      <FeaturedWork />
+      <AllProjects />
       <About />
       <Contact />
       <Footer />

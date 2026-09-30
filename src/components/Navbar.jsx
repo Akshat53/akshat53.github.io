@@ -1,75 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Navbar({ scrollY }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-white/70'
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrollY > 100
+          ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5'
+          : 'bg-white/40 backdrop-blur-md'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex justify-between items-center">
-        {/* Logo - Minimal */}
+      <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+        {/* Logo - Elegant */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="font-bold text-xl tracking-tight"
+          whileHover={{ scale: 1.05 }}
+          className="text-sm font-light tracking-widest uppercase"
         >
-          AS
+          AKSHAT
         </motion.div>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex gap-10">
-          {['Work', 'About', 'Contact'].map((item, i) => (
+        {/* Navigation */}
+        <div className="hidden md:flex items-center gap-12">
+          {[
+            { name: 'Work', href: '#work' },
+            { name: 'About', href: '#about' },
+            { name: 'Contact', href: '#contact' },
+          ].map((item) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              initial={{ opacity: 0, y: -5 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.1 }}
-              className="text-sm font-medium text-gray-700 hover:text-black transition-colors"
+              key={item.name}
+              href={item.href}
+              whileHover={{ y: -2 }}
+              className="text-sm font-light tracking-wide hover:text-gray-600 transition-colors"
             >
-              {item}
+              {item.name}
             </motion.a>
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-gray-700"
+        {/* CTA Button - Premium style */}
+        <motion.a
+          href="#contact"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="text-sm px-6 py-2.5 border border-gray-950 hover:bg-gray-950 hover:text-white transition-all duration-300 font-light tracking-wide"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+          Let's Talk
+        </motion.a>
       </div>
-
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-3"
-        >
-          {['Work', 'About', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              onClick={() => setMobileOpen(false)}
-              className="block text-sm font-medium text-gray-700"
-            >
-              {item}
-            </a>
-          ))}
-        </motion.div>
-      )}
     </motion.nav>
   );
 }

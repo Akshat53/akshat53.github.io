@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 
 export default function Contact() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -18,125 +18,93 @@ export default function Contact() {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section id="contact" className="py-20 md:py-32 px-6 md:px-12 bg-black text-white">
+    <section id="contact" className="py-32 px-8 bg-gray-950 text-white">
       <div className="max-w-4xl mx-auto">
         <motion.div
           ref={ref}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          variants={containerVariants}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8 }}
         >
-          {/* Heading */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">Let's Talk</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Have an exciting project in mind? Let's collaborate and build something amazing together.
+          {/* Header */}
+          <div className="mb-16">
+            <p className="text-xs font-light tracking-[0.2em] uppercase text-gray-500 mb-4">
+              Get In Touch
             </p>
-          </motion.div>
+            <h2 className="text-5xl md:text-6xl font-light leading-tight">
+              Let's create something amazing together
+            </h2>
+            <p className="text-lg font-light text-gray-400 mt-6 max-w-2xl">
+              Have a project in mind? Reach out and let's discuss how we can bring your ideas to life.
+            </p>
+          </div>
 
           {/* Form */}
-          <motion.form
-            variants={itemVariants}
-            onSubmit={handleSubmit}
-            className="space-y-6"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
               <motion.input
                 whileFocus={{ scale: 1.02 }}
                 type="text"
                 name="name"
+                placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name"
                 required
-                className="px-6 py-4 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors"
+                className="px-6 py-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 font-light focus:outline-none focus:border-white/30 transition-colors"
               />
               <motion.input
                 whileFocus={{ scale: 1.02 }}
                 type="email"
                 name="email"
+                placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email"
                 required
-                className="px-6 py-4 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors"
+                className="px-6 py-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 font-light focus:outline-none focus:border-white/30 transition-colors"
               />
             </div>
 
             <motion.textarea
               whileFocus={{ scale: 1.02 }}
               name="message"
+              placeholder="Your Message"
+              rows="6"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Tell me about your project..."
               required
-              rows="6"
-              className="w-full px-6 py-4 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors resize-none"
-            ></motion.textarea>
+              className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 font-light focus:outline-none focus:border-white/30 transition-colors resize-none"
+            />
 
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               type="submit"
-              className="w-full py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors"
+              className="w-full py-4 bg-white text-gray-950 font-light tracking-wide rounded-lg hover:bg-gray-100 transition-colors duration-300"
             >
-              {submitted ? '✓ Message Sent!' : 'Send Message'}
+              {submitted ? '✓ Message Sent' : 'Send Message'}
             </motion.button>
-          </motion.form>
+          </form>
 
           {/* Social Links */}
           <motion.div
-            variants={itemVariants}
-            className="text-center mt-16 pt-8 border-t border-gray-700"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="border-t border-white/10 mt-16 pt-16 text-center"
           >
-            <p className="text-gray-400 mb-6">Or reach me directly</p>
-            <div className="flex justify-center gap-8 flex-wrap">
-              <motion.a
-                whileHover={{ scale: 1.2, y: -5 }}
-                href="mailto:hello@akshat.dev"
-                className="text-gray-400 hover:text-white transition-colors font-medium"
-              >
-                Email
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.2, y: -5 }}
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors font-medium"
-              >
-                LinkedIn
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.2, y: -5 }}
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors font-medium"
-              >
-                GitHub
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.2, y: -5 }}
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors font-medium"
-              >
-                Twitter
-              </motion.a>
+            <p className="text-sm font-light text-gray-500 mb-8">Or connect on social</p>
+            <div className="flex justify-center gap-8">
+              {['LinkedIn', 'GitHub', 'Twitter'].map((platform) => (
+                <motion.a
+                  key={platform}
+                  href="#"
+                  whileHover={{ y: -2 }}
+                  className="text-sm font-light hover:text-white transition-colors"
+                >
+                  {platform}
+                </motion.a>
+              ))}
             </div>
           </motion.div>
         </motion.div>
